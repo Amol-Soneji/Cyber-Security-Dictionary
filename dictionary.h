@@ -69,11 +69,14 @@ class Dictionary
 			ofstream dictToWrite;
 			dictToWrite.open(customPath);
 			string first, second;
+			bool toReturn = false;
 			for (map<string, string>::insert it = dictMap.begin(); it != dictMap.end(); it++)
 			{
 				dictToWrite << *it->first << "," << *it->second << "\n";
 			}
 			dictToWrite.close();
+			bool toReturn = true;
+			return toReturn;
 		}
 		string getJustDef(string term);
 		vector<string> getDefAndTerm(string term);

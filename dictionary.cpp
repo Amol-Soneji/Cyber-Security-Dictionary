@@ -45,4 +45,25 @@ bool Dictionary::addTerm(vector<string> termToAdd)
 	Dictionary::dictMap.insert(pair<string, string>(termToAdd[0], termToAdd[1]));
 }
 
+void Dictionary::displayEntireDict()
+{
+	cout << "---Term--------------------------------------------Definition------\n";
+	string first, second;
+	for (map<string, string>::iterator it = Dictionary::dictMap.begin(); it != Dictionary::dictMap.end(); it++)
+	{
+		cout << "   " << *it->first << "                   " << *it->second << "      \n";
+	}
+}
 
+void Dictionary::dictClose()
+{
+	if (Dictionary::isCustPathSet)
+	{
+		bool status = Dictionary::saveCustDict();
+		if (status)
+			cout << "Dictionary succesfully saved.  \n";
+		else
+			cout << "There was an error when trying to save dictionary.  \n";
+	}
+	cout << "Dictionary closed.  \n";
+}
