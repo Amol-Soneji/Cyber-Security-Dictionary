@@ -3,13 +3,39 @@
 
 using std::cout;
 using std::cin;
+using std::cerr;
 
 Dictionary startDict(string param)
 {
-    if(param.compare(""));
-        return Dictionary dict();
-    else
-        return Dictionary dict(param);
+    if(param.compare(""))
+		return Dictionary();
+	else
+	{
+		int inputThree = 0;
+		while ((inputThree < 1) || (inputThree > 2))
+		{
+			cout << "Enter 1 if this is a new dictionary and you want to start blank.  Enter 2 if dictionary file exists.  :  \n";
+			cin >> inputThree;
+		}
+		if (inputThree == 1)
+		{
+			try
+			{
+				return Dictionary(true);
+			}
+			catch (InternalProgramException& e)
+			{
+				cerr << e.what();
+				for (int ticks = 0; ticks < 10000; ticks++)
+				{
+					ticks = ticks; //Do nothing.  
+				}
+				exit(EXIT_FAILURE);
+			}
+		}
+		else
+			return Dictionary(param);
+	}
 }
 
 int main()
@@ -29,6 +55,9 @@ int main()
 			cin >> flName;
 		}
 	}
-
-        new Dictionary dict = startDict(flName);
+    Dictionary dict = startDict(flName);
+	if (dictTypeOption == 2)
+		dict.toggleCust();
+	int option = 0;
+	
 }

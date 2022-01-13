@@ -1,5 +1,6 @@
 #ifndef DICTIONARY_H
 #define DICTIONARY_H
+#include "InternalProgramException.h"
 #include <map>
 #include <string>
 #include <vector>
@@ -33,6 +34,12 @@ class Dictionary
 				dictMap.insert(term, def);
 			}
 			stdDictFile.close();
+		}
+		Dictionary(bool isNew)
+		{
+			if (!isNew)
+				throw InternalProgramException();
+				
 		}
 		Dictionary(string path)
 		{
@@ -70,9 +77,9 @@ class Dictionary
 			dictToWrite.open(customPath);
 			string first, second;
 			bool toReturn = false;
-			for (map<string, string>::insert it = dictMap.begin(); it != dictMap.end(); it++)
+			for (map<string, string>::iterator it = dictMap.begin(); it != dictMap.end(); it++)
 			{
-				dictToWrite << *it->first << "," << *it->second << "\n";
+				dictToWrite << it->first << "," << it->second << "\n";
 			}
 			dictToWrite.close();
 			bool toReturn = true;

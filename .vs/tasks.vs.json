@@ -5,6 +5,11 @@
       "taskLabel": "task-Cyber-Security-Dictionary",
       "appliesTo": "/",
       "type": "launch"
+    },
+    {
+      "taskLabel": "task-Cyber-Security-Dictionary",
+      "appliesTo": "/",
+      "type": "launch"
     }
   ]
 }

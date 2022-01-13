@@ -17,8 +17,8 @@ string Dictionary::getJustDef(string term)
 	{
 		return "Term not found.  \n";
 	}
-	*it->first;
-	*it->second;
+	it->first;
+	it->second;
 	return second;
 }
 
@@ -35,8 +35,8 @@ vector<string> Dictionary::getDefAndTerm(string term)
 		toReturn.insert(itNotFound + 1, "Term does not found in dictionary.  ");
 		return toReturn;
 	}
-	*it->first;
-	*it->second;
+	it->first;
+	it->second;
 	toReturn.reserve(2);
 	vector<string>::iterator itTwo = toReturn.begin();
 	toReturn.insert(itTwo, first);
@@ -69,7 +69,7 @@ void Dictionary::displayEntireDict()
 	string first, second;
 	for (map<string, string>::iterator it = Dictionary::dictMap.begin(); it != Dictionary::dictMap.end(); it++)
 	{
-		cout << "   " << *it->first << "                   " << *it->second << "      \n";
+		cout << "   " << it->first << "                   " << it->second << "      \n";
 	}
 }
 
