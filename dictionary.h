@@ -23,7 +23,14 @@ class Dictionary
 			custPathSet = false;
 			usingCust = false;
 			ifstream stdDictFile;
-			stdDictFile.open("./Dictionary.csv");
+			try
+			{
+				stdDictFile.open("./Dictionary.csv");
+			}
+			catch (...)
+			{
+				throw InternalProgramException();
+			}
 			string line;
 			while (std::getline(stdDictFile, line))
 			{
@@ -35,11 +42,11 @@ class Dictionary
 			}
 			stdDictFile.close();
 		}
-		Dictionary(bool isNew)
+		Dictionary(bool isNew, string path)
 		{
 			if (!isNew)
 				throw InternalProgramException();
-				
+			customPath = path;
 		}
 		Dictionary(string path)
 		{
@@ -47,7 +54,14 @@ class Dictionary
 			customPath = path;
 			custPathSet = true;
 			ifstream dictFile;
-			dictFile.open(customPath);
+			try
+			{
+				dictFile.open(customPath);
+			}
+			catch (...)
+			{
+				throw;
+			}
 			string line;
 			while (std::getline(dictFile, line))
 			{
