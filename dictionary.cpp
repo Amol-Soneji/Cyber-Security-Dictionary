@@ -46,7 +46,7 @@ vector<string> Dictionary::getDefAndTerm(string term)
 
 bool Dictionary::addTerm(vector<string> termToAdd)
 {
-	if(!Dictionary::isCustPathSet)
+	if(!Dictionary::isCustPathSet())
 	{
 		Dictionary::toggleCust();
 		string toBePath;
@@ -75,7 +75,7 @@ void Dictionary::displayEntireDict()
 
 void Dictionary::dictClose()
 {
-	if (Dictionary::isCustPathSet)
+	if (Dictionary::isCustPathSet())
 	{
 		bool status = Dictionary::saveCustDict();
 		if (status)

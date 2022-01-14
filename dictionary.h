@@ -96,7 +96,7 @@ class Dictionary
 				dictToWrite << it->first << "," << it->second << "\n";
 			}
 			dictToWrite.close();
-			bool toReturn = true;
+			toReturn = true;
 			return toReturn;
 		}
 		string getJustDef(string term);
