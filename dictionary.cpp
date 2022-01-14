@@ -10,22 +10,17 @@ using std::pair;
 
 string Dictionary::getJustDef(string term)
 {
-	string first;
-	string second;
 	map<string, string>::iterator it = Dictionary::dictMap.find(term);
 	if (it == Dictionary::dictMap.end())
 	{
 		return "Term not found.  \n";
 	}
-	it->first;
-	it->second;
-	return second;
+	return it -> second;
 }
 
 vector<string> Dictionary::getDefAndTerm(string term)
 {
 	vector<string> toReturn;
-	string first, second;
 	map<string, string>::iterator it = Dictionary::dictMap.find(term);
 	if (it == Dictionary::dictMap.end())
 	{
@@ -35,12 +30,10 @@ vector<string> Dictionary::getDefAndTerm(string term)
 		toReturn.insert(itNotFound + 1, "Term does not found in dictionary.  ");
 		return toReturn;
 	}
-	it->first;
-	it->second;
 	toReturn.reserve(2);
 	vector<string>::iterator itTwo = toReturn.begin();
-	toReturn.insert(itTwo, first);
-	toReturn.insert(itTwo + 1, second);
+	toReturn.insert(itTwo, it -> first);
+	toReturn.insert(std::next(itTwo, 1), it -> second);
 	return toReturn;
 }
 
@@ -66,7 +59,6 @@ bool Dictionary::addTerm(vector<string> termToAdd)
 void Dictionary::displayEntireDict()
 {
 	cout << "---Term--------------------------------------------Definition------\n";
-	string first, second;
 	for (map<string, string>::iterator it = Dictionary::dictMap.begin(); it != Dictionary::dictMap.end(); it++)
 	{
 		cout << "   " << it->first << "                   " << it->second << "      \n";

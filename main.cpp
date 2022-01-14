@@ -132,7 +132,7 @@ int main()
 			vector<string>::iterator it = termAndDef.begin();
 			cout << "Enter the term to add.  :  \n";
 			cin >> *it;
-			it++;
+			it = std::next(it, 1);
 			cout << "Enter the definition to add.  :  \n";
 			cin >> *it;
 			if (dict.addTerm(termAndDef))

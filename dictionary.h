@@ -38,7 +38,7 @@ class Dictionary
 				string term, def;
 				std::getline(iSStream, term, ',');
 				std::getline(iSStream, def, ',');
-				dictMap.insert(term, def);
+				dictMap.insert({ term, def });
 			}
 			stdDictFile.close();
 		}
@@ -69,7 +69,7 @@ class Dictionary
 				string term, def;
 				std::getline(iSStream, term, ',');
 				std::getline(iSStream, def, ',');
-				dictMap.insert(term, def);
+				dictMap.insert({ term, def });
 			}
 			dictFile.close();
 		}
@@ -89,7 +89,6 @@ class Dictionary
 		{
 			ofstream dictToWrite;
 			dictToWrite.open(customPath);
-			string first, second;
 			bool toReturn = false;
 			for (map<string, string>::iterator it = dictMap.begin(); it != dictMap.end(); it++)
 			{
