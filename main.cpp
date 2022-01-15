@@ -7,7 +7,7 @@ using std::cerr;
 
 Dictionary startDict(string param)
 {
-	if (param.compare(""))
+	if (param.compare("") == 0)
 	{
 		try
 		{
@@ -80,7 +80,7 @@ int main()
 	{
 		while ((flName.compare("")) == 0)
 		{
-			cout << "Please enter a valid file-path or name of the dictionary file youwould like to create or open.  :  \n";
+			cout << "Please enter a valid file-path or name of the dictionary file you would like to create or open.  :  \n";
 			cin >> flName;
 		}
 	}
@@ -128,7 +128,7 @@ int main()
 		else if (option == 4)
 		{
 			vector<string> termAndDef;
-			termAndDef.reserve(2);
+			termAndDef.resize(2);
 			vector<string>::iterator it = termAndDef.begin();
 			cout << "Enter the term to add.  :  \n";
 			cin >> *it;

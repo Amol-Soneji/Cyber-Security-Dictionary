@@ -24,13 +24,10 @@ vector<string> Dictionary::getDefAndTerm(string term)
 	map<string, string>::iterator it = Dictionary::dictMap.find(term);
 	if (it == Dictionary::dictMap.end())
 	{
-		toReturn.reserve(2);
-		vector<string>::iterator itNotFound = toReturn.begin();
-		toReturn.insert(itNotFound, "N/A");
-		toReturn.insert(itNotFound + 1, "Term does not found in dictionary.  ");
+		toReturn = { "N/A", "Term not found in dictionary.  \n" };
 		return toReturn;
 	}
-	toReturn.reserve(2);
+	toReturn.resize(2);
 	vector<string>::iterator itTwo = toReturn.begin();
 	toReturn.insert(itTwo, it -> first);
 	toReturn.insert(std::next(itTwo, 1), it -> second);

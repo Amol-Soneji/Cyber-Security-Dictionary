@@ -2,9 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\Debug",
+    "\\Debug\\Cyber-Se.374B367C.tlog",
     "\\x64",
-    "\\x64\\Debug"
+    "\\x64\\Debug",
+    "\\x64\\Debug\\Cyber-Se.374B367C.tlog"
   ],
-  "SelectedNode": "\\main.cpp",
+  "SelectedNode": "\\dictionary.cpp",
   "PreviewInSolutionExplorer": false
 }
