@@ -84,6 +84,7 @@ class Dictionary
 		void setCustPath(string path)
 		{
 			customPath = path;
+			custPathSet = true;
 		}
 		bool saveCustDict()
 		{
