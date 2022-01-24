@@ -4,6 +4,7 @@
 using std::cout;
 using std::cin;
 using std::cerr;
+using std::getline;
 
 Dictionary startDict(string param)
 {
@@ -81,7 +82,8 @@ int main()
 		while ((flName.compare("")) == 0)
 		{
 			cout << "Please enter a valid file-path or name of the dictionary file you would like to create or open.  :  \n";
-			cin >> flName;
+			cin.ignore();
+			getline(cin, flName);
 		}
 	}
     Dictionary dict = startDict(flName);
@@ -109,7 +111,8 @@ int main()
 		{
 			string term, def;
 			cout << "Enter the term you wish to search for.  :  \n";
-			cin >> term;
+			cin.ignore(); //Remove the new line character that has been left over from integer inputs.  
+			getline(cin, term);
 			def = dict.getJustDef(term);
 			cout << "Definition:  \n"
 				<< def << "\n";
@@ -119,10 +122,11 @@ int main()
 		{
 			string term;
 			cout << "Enter the term you wish to search for.  :  \n";
-			cin >> term;
+			cin.ignore(); //Remove the new line character that has been left over from integer inputs.  
+			getline(cin, term);
 			vector<string> termAndDef = dict.getDefAndTerm(term);
 			cout << "----Term----------------------------------Definition-------------------\n"
-				<< "  " << termAndDef[0] << "                  " << termAndDef[1] << "              \n";
+				<< "  " << termAndDef[0] << "                            " << termAndDef[1] << "              \n";
 			option = 0;
 		}
 		else if (option == 4)
@@ -131,10 +135,11 @@ int main()
 			termAndDef.resize(2);
 			vector<string>::iterator it = termAndDef.begin();
 			cout << "Enter the term to add.  :  \n";
-			cin >> *it;
+			cin.ignore(); //Remove the new line character that was left over previously from int inputs.  
+			getline(cin, *it);
 			it = std::next(it, 1);
 			cout << "Enter the definition to add.  :  \n";
-			cin >> *it;
+			getline(cin, *it);
 			if (dict.addTerm(termAndDef))
 				cout << "Term and definition added successfuly.  \n";
 			else

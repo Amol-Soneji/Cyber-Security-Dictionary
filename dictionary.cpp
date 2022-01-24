@@ -6,6 +6,7 @@
 using std::sort;
 using std::cout;
 using std::cin;
+using std::getline;
 using std::pair;
 
 string Dictionary::getJustDef(string term)
@@ -28,9 +29,8 @@ vector<string> Dictionary::getDefAndTerm(string term)
 		return toReturn;
 	}
 	toReturn.resize(2);
-	vector<string>::iterator itTwo = toReturn.begin();
-	toReturn.insert(itTwo, it -> first);
-	toReturn.insert(std::next(itTwo, 1), it -> second);
+	toReturn.insert(toReturn.begin(), it -> first);
+	toReturn.insert(std::next(toReturn.begin()), it -> second);
 	return toReturn;
 }
 
@@ -41,7 +41,7 @@ bool Dictionary::addTerm(vector<string> termToAdd)
 		Dictionary::toggleCust();
 		string toBePath;
 		cout << "Please enter the name of file (if to store in program directory)\n or path, relative to this programs working directory.  \n";
-		cin >> toBePath;
+		getline(cin, toBePath);
 		Dictionary::setCustPath(toBePath);
 	}
 	if ((getDefAndTerm(termToAdd[0])[0].compare(termToAdd[0])) == 0)
@@ -58,7 +58,7 @@ void Dictionary::displayEntireDict()
 	cout << "---Term--------------------------------------------Definition------\n";
 	for (map<string, string>::iterator it = Dictionary::dictMap.begin(); it != Dictionary::dictMap.end(); it++)
 	{
-		cout << "   " << it->first << "                   " << it->second << "      \n";
+		cout << "   " << it->first << "                              " << it->second << "      \n";
 	}
 }
 
