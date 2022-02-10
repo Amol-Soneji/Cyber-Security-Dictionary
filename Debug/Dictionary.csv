@@ -1,0 +1,12 @@
+Adversary,An entity that wishes or has the potential of profiting from doing malisous attacks on a remote system or network.  
+DDOS,See "Distributed Denial Of Service".  
+Denial Of Service,A type of attack where a remote system or server gets overloaded with requests from multiple computers, that are usually part of a "botnet".  This causes users with legimate purpouse from getting resources from the remote service.   This is due to either the request getting discarded due to the request queue at the remote server being full, or by the time the request is processed the request has timed-out.  
+Distributed Denial Of Service,A "Denial Of Service" attack where multiple servers or systems are attacked.  Usually the attacked servers or systems belong to a specfic entity or host.  
+DOS,See "Denial Of Service".  
+IDPS,See "Intrusion Detection and Prevention System".  
+IDS,See "Intrusion Detection System".  
+Intrusion Detection and Prevention System,A hybrid of both an "IDS" and "IPS".  Usualy used mostly now a days.  
+Intrusion Detection System,A software, service, or equipment, that can detect a possible attack on a network or host.  This is usually done via heuristics and/or attack signatures based of configurations.  When a possible attack is detected, it is logged to a location that is checked by an SIEM.  
+Intrusion Prevention System,A software, service, or equipment, that interacts with the SIEM, or recieves data of a possible attack from a SIEM.  Based on the received data, the IPS takes actions preconfigured by an administrator to prevent the attack from further propogating.  
+IPS,See "Intrusion Prevention System".  
+Nmap,A software that is used by both adversaries and pentesters to find open ports on a remote system.  It can also guess the type of OS the remote system if possible.  

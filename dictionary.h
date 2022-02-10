@@ -37,7 +37,7 @@ class Dictionary
 				istringstream iSStream(line);
 				string term, def;
 				std::getline(iSStream, term, ',');
-				std::getline(iSStream, def, ',');
+				std::getline(iSStream, def);
 				dictMap.insert({ term, def });
 			}
 			stdDictFile.close();
@@ -68,7 +68,7 @@ class Dictionary
 				istringstream iSStream(line);
 				string term, def;
 				std::getline(iSStream, term, ',');
-				std::getline(iSStream, def, ',');
+				std::getline(iSStream, def);
 				dictMap.insert({ term, def });
 			}
 			dictFile.close();
